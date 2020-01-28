@@ -14,7 +14,7 @@ public class CharacterFactory // : AbstractVehicleFactory
 
     public CharacterFactory(CharacterRequirements requirements)
     {
-        _factory = requirements.Bad ? (ICharacterFactory)new TownspeopleFactory() : new TownspeopleFactory();
+        _factory = requirements.Human ? (requirements.Evil ? (ICharacterFactory)new EvilFactory() : new HeroFactory()) : (requirements.Evil ? (ICharacterFactory)new BadAnimalFactory() : new GoodAnimalFactory());
         _requirements = requirements;
     }
 
@@ -24,29 +24,63 @@ public class CharacterFactory // : AbstractVehicleFactory
     }
 }
 
-public class TownspeopleFactory : ICharacterFactory
+public class HeroFactory : ICharacterFactory
 {
     public ICharacter Create(CharacterRequirements requirements)
     {
-        if(requirements.Bad && requirements.Good)
+        if (requirements.Unique)
         {
-            Debug.Log("Anti");
-            return new AntiHero();
-        }
-        else if(requirements.Bad)
-        {
-            Debug.Log("Enemy");
-            return new Enemy();
-        }
-        else if(requirements.Good)
-        {
-            Debug.Log("Good");
-            return new Hero();
+            return new Superman();
         }
         else
         {
-            Debug.Log("Marsh");
-            return new Marshmallow();
+            return new Hero();
         }
     }
 }
+
+public class EvilFactory : ICharacterFactory
+{
+    public ICharacter Create(CharacterRequirements requirements)
+    {
+        if (requirements.Unique)
+        {
+            return new Vampire();
+        }
+        else
+        {
+            return new Enemy();
+        }
+    }
+}
+
+public class BadAnimalFactory : ICharacterFactory
+{
+    public ICharacter Create(CharacterRequirements requirements)
+    {
+        if (requirements.Unique)
+        {
+            return new Dragon();
+        }
+        else
+        {
+            return new Wolf();
+        }
+    }
+}
+
+public class GoodAnimalFactory : ICharacterFactory
+{
+    public ICharacter Create(CharacterRequirements requirements)
+    {
+        if (requirements.Unique)
+        {
+            return new Marshmallow();
+        }
+        else
+        {
+            return new Cow();
+        }
+    }
+}
+
