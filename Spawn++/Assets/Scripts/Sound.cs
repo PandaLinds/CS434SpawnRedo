@@ -2,17 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class Sound : MonoBehaviour
 {
-    public ICharacterFactory newFactory;
-    
-    private Body genBod;
-
-    public void SpawnThem()
-    {
-        
-    }
-
     // Start is called before the first frame update
     void Start()
     {

@@ -7,7 +7,9 @@ public class Client : MonoBehaviour
     public bool Human;
     public bool Evil;
     public bool Unique;
-    public Body genBody;
+
+    // public SpawnBody mSpawner;
+    // private Body mBody;
     CharacterRequirements requirements = new CharacterRequirements();
 
     // Start is called before the first frame update
@@ -24,11 +26,15 @@ public class Client : MonoBehaviour
         requirements.Unique = Unique;
         if (Input.GetKeyDown(KeyCode.A))
         {
-            //IVehicle v = GetVehicle(requirements);
             CharacterFactory factory = new CharacterFactory(requirements);
             ICharacter v = factory.Create();
-            genBody.Body(v);
             Debug.Log(v);
+            v.addSound();
+            // mBody = mSpawner.SpawnNewBody();
+            // mBody.transform.Translate(Vector3.forward * 1.5f);
+            Debug.Log("after spawn");
         }
     }
+
+    
 }

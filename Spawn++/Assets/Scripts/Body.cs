@@ -2,29 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Body : MonoBehaviour, ICharacter
+public class Body : MonoBehaviour, ICopyable
 {
-    string newVoice;
-    Body(ICharacter newBeing)
-    {
-        newVoice = newBeing.Speak();
-    }
 
-    public string Speak()
+    public ICopyable Copy()
     {
-        string voice = newVoice;
-        Debug.Log(voice);
-        return voice;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        Speak();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return Instantiate(this);
     }
 }
