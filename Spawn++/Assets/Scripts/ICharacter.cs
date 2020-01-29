@@ -2,70 +2,86 @@
 
 public interface ICharacter
 {
-    void Speak();
+    string Speak();
 }
 
 
 public class Hero : ICharacter
 {
-    public void Speak()
+    public string Speak()
     {
-        Debug.Log("Hero");
+        string voice = "Hero";
+        Debug.Log(voice);
+        return voice;
     }
 }
 
 public class Superman : ICharacter
 {
-    public void Speak()
+    public string Speak()
     {
-        Debug.Log("Superman");
+        string voice = "Superman";
+        Debug.Log(voice);
+        return voice;
     }
 }
 
 public class Enemy : ICharacter
 {
-    public void Speak()
+    public string Speak()
     {
-        Debug.Log("Enemy");
+        string voice = "Enemy";
+        Debug.Log(voice);
+        return voice;
     }
 }
 
 public class Marshmallow : ICharacter
 {
-    public void Speak()
+    public string Speak()
     {
-        Debug.Log("Marshmallow");
+        string voice = "Marshmallow";
+        Debug.Log(voice);
+        return voice;
     }
 }
 
 public class Wolf : ICharacter
 {
-    public void Speak()
+    public string Speak()
     {
-        Debug.Log("Dog");
+        string voice = "Wolf";
+        Debug.Log(voice);
+        return voice;
     }
 }
 
 public class Dragon : ICharacter
 {
-    public void Speak()
+    public string Speak()
     {
-        Debug.Log("Dragon");
+        string voice = "Dragon";
+        Debug.Log(voice);
+        return voice;
     }
 }
 
 public class Vampire : ICharacter
 {
-    public void Speak()
+    public string Speak()
     {
-        Debug.Log("Vampire");
+        string voice = "Vampire";
+        Debug.Log(voice);
+        return voice;
     }
 }
 
 public class Cow : ICharacter
 {
-    public void Speak()
+    public string Speak()
     {
-        Debug.Log("Cow");
+        string voice = "Cow";
+        Debug.Log(voice);
+        return voice;
     }
 }

@@ -7,6 +7,7 @@ public class Client : MonoBehaviour
     public bool Human;
     public bool Evil;
     public bool Unique;
+    public Body genBody;
     CharacterRequirements requirements = new CharacterRequirements();
 
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class Client : MonoBehaviour
             //IVehicle v = GetVehicle(requirements);
             CharacterFactory factory = new CharacterFactory(requirements);
             ICharacter v = factory.Create();
+            genBody.Body(v);
             Debug.Log(v);
         }
     }
